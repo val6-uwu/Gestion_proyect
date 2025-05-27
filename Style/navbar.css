@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ESTILOS PARA LA NAVBAR */
+
+.navbar {
+    background: linear-gradient(90deg, #FFEA00, #FFF700, #FFE600);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    /* Permite que los elementos se acomoden mejor en pantallas pequeñas */
+}
+
+
+/* LOGO */
+
+.logo img {
+    height: 70px;
+    width: auto;
+    display: block;
+    margin-right: auto;
+    /* Centra el logo en pantallas pequeñas */
+}
+
+
+/* FORMULARIO DE BÚSQUEDA */
+
+.search-form {
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: white;
+    height: 40px;
+    width: 519px;
+    flex: 1;
+}
+
+.search-form input[type="text"] {
+    border: none;
+    padding: 8px 15px;
+    outline: none;
+    font-size: 15px;
+    flex: 1;
+    border-radius: 20px 0 0 20px;
+    background-color: transparent;
+    min-width: 200px;
+}
+
+.search-form button {
+    border: none;
+    background-color: black;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #333;
+}
+
+
+/* ÍCONO DE LUPA */
+
+.search-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    /* Asegura que los botones se ajusten a pantallas pequeñas */
+}
+
+
+/* BOTONES GENERALES */
+
+.btn-celeste,
+.btn-rosa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    text-align: right;
+}
+
+.btn-celeste {
+    background-color: #8BD0FF;
+    color: #000;
+}
+
+.btn-celeste:hover {
+    background-color: #6bbfff;
+}
+
+.btn-rosa {
+    background-color: #FF007B;
+    color: #fff;
+}
+
+.btn-rosa:hover {
+    background-color: #cc0063;
+}
+
+
+/* ÍCONOS */
+
+.btn-icon {
+    height: 35px;
+    width: 35px;
+}
+
+
+/* TEXTO DENTRO DEL BOTÓN */
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 0.8;
+    text-align: left;
+}
+
+
+/* "¡Bienvenido!" o título */
+
+.btn-title {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* Subtexto */
+
+.btn-subtext {
+    font-size: 12px;
+    font-weight: normal;
+}

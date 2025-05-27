@@ -1,0 +1,139 @@
+/* SEGUNDA BARRA (SUB NAVBAR) */
+
+
+/* Estilo general de la sub-navbar */
+
+.sub-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFEA00;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #FFEA00;
+    flex-wrap: wrap;
+    /* Adaptar para pantallas pequeñas */
+}
+
+
+/* Contenedor para el botón de categorías y enlaces */
+
+.sub-navbar-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten cuando el espacio sea limitado */
+}
+
+
+/* Estilo del botón de categorías */
+
+.btn-categorias {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #FFF58B;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-categorias:hover {
+    background-color: #dfca0f;
+}
+
+.cat-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Estilo para la lista de enlaces */
+
+.sub-nav-links {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+    font: 1em sans-serif;
+}
+
+.sub-nav-links li {
+    font-size: 15px;
+}
+
+.sub-nav-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.sub-nav-links a:hover {
+    color: #ff0095;
+}
+
+
+/* Estilo del botón del carrito */
+
+.cart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Adaptaciones para pantallas pequeñas */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+    .logo img {
+        margin-bottom: 10px;
+    }
+    .search-form {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .nav-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .sub-navbar-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .sub-nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        align-items: center;
+    }
+    .btn-categorias {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .sub-navbar-container.active .sub-nav-links {
+        display: flex;
+    }
+    .cart-btn {
+        margin-top: 10px;
+    }
+    .sub-nav-links li {
+        text-align: center;
+    }
+}

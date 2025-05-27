@@ -1,0 +1,53 @@
+.slider {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Espacio opcional arriba/abajo */
+    background-color: #fff;
+    /* Color de fondo del slider */
+}
+
+.slides {
+    position: relative;
+}
+
+.slide {
+    display: none;
+    max-width: 100%;
+    /* Que no se pase del ancho de pantalla */
+    height: auto;
+    /* Mantiene la proporción original */
+}
+
+.slide.active {
+    display: block;
+}
+
+
+/* BOTONES */
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
