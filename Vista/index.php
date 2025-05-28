@@ -7,8 +7,8 @@
 </head>
 <body>
 
-    <?php include('../Secciones/navbar.php'); ?>
-    <?php include('../Secciones/slider.php'); ?>
+    <?php include('../Vista/navbar.php'); ?>
+    <?php include('../Vista/slider.php'); ?>
 
 </body>
 </html>

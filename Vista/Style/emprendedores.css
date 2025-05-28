@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffffff;
+}
+
+.cards-container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 400px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #FF6A00, #FFB347);
+    color: #fff;
+    padding: 20px;
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ccc;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.category.gastro {
+    background: #E27D60;
+}
+
+.category.orfe {
+    background: #FFD166;
+    color: #333;
+}
+
+.category.textiles {
+    background: #8E7CC3;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    font-size: 14px;
+}
+
+.productos {
+    margin: 10px 0;
+}
+
+.badge {
+    display: inline-block;
+    background: #eee;
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 13px;
+    margin: 2px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #777;
+    margin-top: 8px;
+}
+
+.rating {
+    color: #F4A261;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.actions i {
+    font-size: 18px;
+    color: #555;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.contact-button {
+    background: #f26522;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}

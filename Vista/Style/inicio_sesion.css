@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../Complementos/imgs/piura.jpg');
+    /* Ajusta la ruta */
+    background-size: cover;
+    /* Hace que la imagen cubra toda la pantalla */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que se repita */
+    background-attachment: fixed;
+    /* Hace que la imagen quede fija al hacer scroll */
+}
+
+
+/* Este contenedor centra verticalmente el formulario sin afectar la navbar */
+
+.contenedor-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* Ajusta esto según la altura de tu navbar */
+    min-height: calc(100vh - 100px);
+    /* Deja espacio para la navbar */
+    box-sizing: border-box;
+}
+
+
+/* Ya tenías este, lo mantengo como está */
+
+.frm-inicio-sesion {
+    background: rgba(7, 7, 7, 0.603);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.frm-inicio-sesion h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.frm-inicio-sesion span {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.frm-inicio-sesion a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.frm-inicio-sesion a:hover {
+    text-decoration: underline;
+}
+
+.frm-inicio-sesion form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.frm-inicio-sesion label {
+    text-align: left;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.frm-inicio-sesion input[type="email"],
+.frm-inicio-sesion input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.frm-inicio-sesion input[type="email"]:focus,
+.frm-inicio-sesion input[type="password"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.frm-inicio-sesion input[type="submit"] {
+    padding: 12px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.frm-inicio-sesion input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.frm-inicio-sesion form a:last-child {
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
