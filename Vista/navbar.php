@@ -25,7 +25,7 @@
                 </div>
             </button>
 
-            <button class="btn-rosa">
+            <button class="btn-rosa" onclick="window.location.href='iniciosesion-vend.php';">
                 <img src="../Vista/Complementos/icons/work.png" alt="icono2" class="btn-icon">
                 <div class="btn-text">
                     <span class="btn-title">Emprende</span><br>
