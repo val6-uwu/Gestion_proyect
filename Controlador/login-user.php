@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 require_once '../Modelo/conexion.php';
 
 $con = new Conexion();

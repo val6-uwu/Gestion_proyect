@@ -1,7 +1,6 @@
 <?php
 class Conexion {
     private $con;
-
     public function __construct() {
         $this->con = new mysqli('localhost', 'root', '', 'bd_ranti');
 
@@ -12,7 +11,6 @@ class Conexion {
             echo "Conexión exitosa a la base de datos.";
         }
     }
-
     // Método público para obtener la conexión
     public function getConexion() {
         return $this->con;
