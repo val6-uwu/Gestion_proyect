@@ -37,11 +37,34 @@
     <!--Sugunda barra de navegación-->
     <nav class="sub-navbar">
         <div class="sub-navbar-container">
-            <button class="btn-categorias">
-                <img src="../Vista/Complementos/icons/menu.png" alt="izq" class="cat-icon">
-                <span>Todas las categorías</span>
-                <img src="../Vista/Complementos/icons/abajo.png" alt="der" class="cat-icon">
-            </button>
+            <!--DESPLEGAR-->
+            <div class="dropdown-container">
+
+
+    <button class="btn-categorias" onclick="DesplegarMenu();">
+        <img src="../Vista/Complementos/icons/menu.png" alt="izq" class="cat-icon">
+        <span>Todas las categorías</span>
+        <img src="../Vista/Complementos/icons/abajo.png" alt="der" class="cat-icon">
+    </button>
+
+   
+    <div class="menu-desplegable">
+        <ul class="categorias">
+            <li class="listItem" data-categoria="alimentos_bebidas">Alimentos y bebidas</li>
+            <li class="listItem" data-categoria="ropa_accesorios">Ropa y Accesorios</li>
+            <li class="listItem" data-categoria="artesanias_regalos">Artesanias y Regalos</li>
+            <li class="listItem" data-categoria="belleza">Belleza</li>
+            <li class="listItem" data-categoria="tecnologia_electronicos">Tecnología y Electrónicos</li>
+            <li class="listItem" data-categoria="mascotas">Mascotas</li>
+        </ul>
+        
+        
+        <div class="subcategorias">
+          
+        </div>
+    </div>
+
+</div> <!-- Fin del contenedor padre -->
 
             <ul class="sub-nav-links">
                 <li><a href="#">Conoce más de Piura</a></li>
@@ -58,3 +81,5 @@
             <img src="../Vista/Complementos/icons/carrito.png" alt="Carrito">
         </button>
     </nav>
+
+    <script src="../Vista/Scripts/boton-categorias.js"></script>

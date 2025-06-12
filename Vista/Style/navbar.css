@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 
@@ -16,7 +17,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1001;
     flex-wrap: wrap;
     /* Permite que los elementos se acomoden mejor en pantallas pequeñas */
 }
@@ -159,4 +160,90 @@
 .btn-subtext {
     font-size: 12px;
     font-weight: normal;
+}
+
+
+/* Menu desplegable */
+/* ---- 1. El Contenedor Padre (La Clave de todo) ---- */
+.dropdown-container {
+  position: relative; 
+  display: inline-block; /* Hace que el contenedor se ajuste al ancho del botón */
+}
+
+
+/* ---- 2. Estilos para el Menú Desplegable ---- */
+.menu-desplegable {
+  display: none; 
+  align-items: start;
+  /* Posicionamiento absoluto RELATIVO a .dropdown-container */
+  position: absolute; 
+  
+  /* Lo ubicamos justo debajo del botón */
+  top: 100%; /* 100% de la altura del contenedor padre */
+  left: 0;
+  margin-top: 8px; 
+  
+  max-width: 100rem;
+  z-index: 1000; 
+  display: none; 
+  
+  grid-template-columns: auto auto;
+}
+
+
+/* ---- 4. Estilos para las Listas y Elementos dentro del Menú ---- */
+.menu-desplegable ul {
+  list-style: none; /* Quita los puntos de la lista */
+  padding: 0;
+  margin: 0;
+
+}
+.menu-desplegable .listItem{
+  border-bottom: 2px solid white; 
+  padding: 10px 15px;
+  color: #333;
+  display: block;
+  text-decoration: none;
+  border-radius: 4px;
+  
+}
+
+
+.menu-desplegable .subcategorias a,
+.subcategorias b {
+  display: block;
+  padding: 5px 15px;
+  color: #333;
+  text-decoration: none;
+  
+}
+
+.menu-desplegable .listItem:hover,
+.menu-desplegable .subcategorias a:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+.categorias{
+    width: 215px;
+    border-radius: 4px;
+    background-color: #FFF58B;
+    border-left: 1px solid #ddd;
+}
+.subcategorias{
+    font-size: 14px;
+    max-width: 1000px;
+    
+    display: grid;
+    background-color: #fff79d;
+    border-radius: 4px;
+    grid-auto-flow: column;     /* Llena por columnas */
+    grid-template-rows: 1fr 1fr; /* Solo dos filas */
+    padding: 7px 0;
+    
+}
+.subcategorias ul{
+    min-width: 180px;
+}
+.active{
+    background-color: #fff79d;
 }

@@ -1,0 +1,108 @@
+[
+  {
+    "categoria": "alimentos_bebidas",
+    "subcategorias": [
+      {
+        "nombre": "Snacks y Aperitivos",
+        "items": ["Chifles y snacks", "Galletas", "Dulces y golosinas típicas", "Frutos secos"]
+      },
+      {
+        "nombre": "Miel y Productos Derivados",
+        "items": ["Miel de Algarrobo", "Jarabe de Algarrobo", "Miel de Abeja"]
+      },
+      {
+        "nombre": "Productos de la Región",
+        "items": ["Harinas", "Productos de Algarrobo", "Productos orgánicos"]
+      },
+      {
+        "nombre": "Bebidas",
+        "items": ["Jugos naturales", "Bebidas tradicionales", "Aguas saborizadas"]
+      }
+    ]
+  },
+  {
+    "categoria": "ropa_accesorios",
+    "subcategorias": [
+      {
+        "nombre": "Ropa de Hombre",
+        "items": ["Camisas", "Pantalones", "Chaquetas"]
+      },
+      {
+        "nombre": "Ropa de Mujer",
+        "items": ["Vestidos", "Blusas", "Faldas"]
+      },
+      {
+        "nombre": "Accesorios",
+        "items": ["Gorros", "Cinturones", "Bufandas"]
+      }
+    ]
+  },
+  {
+    "categoria": "artesanias_regalos",
+    "subcategorias": [
+      {
+        "nombre": "Artesanía Textil",
+        "items": ["Ponchos", "Chalinas", "Bolsos"]
+      },
+      {
+        "nombre": "Decoración",
+        "items": ["Cuadros", "Esculturas", "Velas artesanales"]
+      },
+      {
+        "nombre": "Regalos Personalizados",
+        "items": ["Tazas", "Llaveros", "Cuadernos decorados"]
+      }
+    ]
+  },
+  {
+    "categoria": "belleza",
+    "subcategorias": [
+      {
+        "nombre": "Cuidado Facial",
+        "items": ["Cremas", "Mascarillas", "Sérums"]
+      },
+      {
+        "nombre": "Maquillaje",
+        "items": ["Bases", "Sombras", "Labiales"]
+      },
+      {
+        "nombre": "Cuidado Capilar",
+        "items": ["Shampoo", "Acondicionador", "Aceites"]
+      }
+    ]
+  },
+  {
+    "categoria": "tecnologia_electronicos",
+    "subcategorias": [
+      {
+        "nombre": "Celulares",
+        "items": ["Smartphones", "Fundas", "Cargadores"]
+      },
+      {
+        "nombre": "Computadoras",
+        "items": ["Laptops", "Teclados", "Ratones"]
+      },
+      {
+        "nombre": "Audio",
+        "items": ["Audífonos", "Parlantes", "Micrófonos"]
+      }
+    ]
+  },
+  {
+    "categoria": "mascotas",
+    "subcategorias": [
+      {
+        "nombre": "Alimentos",
+        "items": ["Croquetas", "Snacks", "Suplementos"]
+      },
+      {
+        "nombre": "Accesorios",
+        "items": ["Correas", "Collares", "Ropa"]
+      },
+      {
+        "nombre": "Higiene",
+        "items": ["Champú", "Cepillos", "Arenas sanitarias"]
+      }
+    ]
+  }
+]

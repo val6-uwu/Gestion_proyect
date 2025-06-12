@@ -10,3 +10,4 @@ function confirmarPago() {
     cerrarModal();
     document.getElementById("form-vendedor").submit();
 }
+
