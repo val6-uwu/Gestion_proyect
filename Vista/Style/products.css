@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+}
+
+/* --- CONTENEDOR PRINCIPAL (LAYOUT DE 2 COLUMNAS) --- */
+.father-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 2rem; /* Espacio entre la barra de filtros y los productos */
+}
+
+/* --- BARRA DE FILTROS (IZQUIERDA) --- */
+.filter {
+    flex: 0 0 280px; /* La barra no se encoge, no crece y tiene 280px de ancho */
+}
+
+.filter-header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.filter-header p {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.filter-section {
+    margin-bottom: 2.5rem;
+}
+
+.filter-section h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.category-list, .price-list, .subcategory-item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.toggle-subcategory:hover{
+    cursor: pointer;
+}
+.subcategory-item{
+    margin-left: 0.3rem;
+}
+
+.CategoryItem, .price-list li {
+    margin-bottom: 0.75rem;
+}
+
+.CategoryItem ul{
+    margin-top: 0.75rem;
+}
+.category-list a, .price-list a, .discount-filter, .subcategory-item {
+    text-decoration: none;
+    color: #343a40;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.price-list a::before, .Category-item a::before, .subcategory-item a::before {
+    content: '>';
+    margin-right: 0.5rem;
+    color: #adb5bd;
+}
+
+.category-list a:hover, .price-list a:hover, .discount-filter:hover {
+    color: #007bff;
+}
+.subcategory-container {
+    display: none;
+}
+
+.price-range {
+    margin-top: 1.5rem;
+}
+
+.price-range label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.range-inputs input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-family: inherit;
+    text-align: center;
+}
+.range-inputs input:focus {
+    outline: 2px solid #007bff;
+    border-color: #007bff;
+}
+
+.discount-filter {
+    font-weight: 700;
+}
+
+
+/* --- SECCIÓN DE PRODUCTOS (DERECHA) --- */
+.products {
+    flex: 1; /* Ocupa el espacio restante */
+    min-width: 0; /* Evita que los productos se desborden */
+}
+
+/* Breadcrumbs (Migas de pan) */
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #6c757d;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.header h1 span {
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Contenedor de la cuadrícula de productos */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Tarjeta de Producto Individual */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el tag de oferta no se salga */
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para posicionar el tag de oferta */
+}
+
+.product-card:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Mantiene la imagen cuadrada */
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+    flex-grow: 1; /* Empuja el contenido hacia abajo si las tarjetas tienen alturas diferentes */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 0 0 0.25rem 0;
+}
+
+.product-info p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0 0 1rem 0;
+    flex-grow: 1; /* Ocupa el espacio para alinear los precios abajo */
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #28a745; /* Color verde para el precio */
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Estilos para productos en oferta */
+.product-card.on-sale .sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #E91E63; /* Rosa como en la imagen */
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.product-card.on-sale .original-price {
+    text-decoration: line-through;
+    color: #adb5bd;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.product-card.on-sale .sale-price {
+    color: #dc3545; /* Rojo para destacar la oferta */
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER Y PAGINACIÓN --- */
+.products-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #e9ecef;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+.pagination span {
+    border: none;
+    color: #6c757d;
+}
+
+
+/* --- Media Query para pantallas pequeñas (móviles) --- */
+@media (max-width: 768px) {
+    .father-container {
+        flex-direction: column; /* Apila las columnas */
+    }
+    
+    .filter {
+        flex: 1; /* Ocupa todo el ancho */
+        margin-bottom: 2rem;
+    }
+
+    .products-container {
+        /* Muestra 2 columnas en pantallas medianas */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

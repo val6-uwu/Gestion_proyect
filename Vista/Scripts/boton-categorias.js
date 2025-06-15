@@ -6,6 +6,7 @@ const categoryButton = document.querySelector('.btn-categorias');
 document.addEventListener('click', function(event) {
   if (!menu.contains(event.target) && !categoryButton.contains(event.target)) {
     menu.style.display = 'none';
+    EliminarSubCategorias();
   }
 });
 
@@ -22,6 +23,42 @@ function DesplegarMenu(){
        menu.style.display = "none";
        EliminarSubCategorias();
 }
+
+function RenderizarSubCategoria(category) {
+
+    const subcategoriasContainer = document.querySelector('.subcategorias');
+
+    fetch('../DATA/subcategories.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(Element => {
+                if (Element.categoria === category) {
+                    const subcategorias = Element.subcategorias;
+
+                    subcategorias.forEach(subcategoria => {
+                        const ul = document.createElement('ul');
+
+
+                        const tituloLi = document.createElement('li');
+                        tituloLi.innerHTML = `<b>${subcategoria.nombre}</b>`;
+                        ul.appendChild(tituloLi);
+
+                        
+                            
+                        subcategoria.items.forEach(item => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `<a href="#">${item}</a>`;
+                            ul.appendChild(li);
+                        });
+                        
+                        subcategoriasContainer.appendChild(ul);
+                    });
+                }
+            });
+        });
+}
+
+
 //Asignamos el evento click a cada elemento de la lista categorias
 for (let i = 0; i < listItem.length; i++) {
    listItem[i].addEventListener("click", function(event) {
@@ -33,40 +70,6 @@ for (let i = 0; i < listItem.length; i++) {
        listItem[i].classList.add("active");
 
          //Llamamos a la función para renderizar las subcategorías
-       RenderizarSubCategoria(listItem[i].dataset.categoria)
+       RenderizarSubCategoria(listItem[i].dataset.categoria, '.subcategorias')
    });
 }
-
-function RenderizarSubCategoria(category) {
-
-    const subcategoriasContainer = document.querySelector('.subcategorias');    
-    const unorderedList = document.createElement('ul');
-
-    fetch('subcategories.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(Element => {
-                if (Element.categoria === category) {
-                    const subcategorias = Element.subcategorias;
-
-                    subcategorias.forEach(subcategoria => {
-                        const ul = document.createElement('ul');
-
-                        // Primer li con nombre en negrita
-                        const tituloLi = document.createElement('li');
-                        tituloLi.innerHTML = `<b>${subcategoria.nombre}</b>`;
-                        ul.appendChild(tituloLi);
-
-                        subcategoria.items.forEach(item => {
-                            const li = document.createElement('li');
-                            li.innerHTML = `<a href="#">${item}</a>`;
-                            ul.appendChild(li);
-                        });
-
-                        subcategoriasContainer.appendChild(ul);
-                    });
-                }
-            });
-        });
-}
-

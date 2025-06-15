@@ -60,7 +60,7 @@
         
         
         <div class="subcategorias">
-          
+            <ul></ul>
         </div>
     </div>
 
@@ -69,7 +69,7 @@
             <ul class="sub-nav-links">
                 <li><a href="#">Conoce más de Piura</a></li>
                 <li><a href="#">Packs de ofertas</a></li>
-                <li><a href="#">Productos</a></li>
+                <li><a href="products.php">Productos</a></li>
                 <li><a href="#">Negocios</a></li>
                 <li><a href="emprendedores.php">Emprendedores</a></li>
             </ul>
