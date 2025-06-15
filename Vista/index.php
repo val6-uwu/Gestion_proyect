@@ -8,6 +8,5 @@
 
     <?php include('../Vista/navbar.php'); ?>
     <?php include('../Vista/slider.php'); ?>
-
 </body>
 </html>
