@@ -116,6 +116,57 @@ class Conexion {
         }
         return $productos;
     }
+    public function getEmprendedores() {
+    $query = "SELECT u.user_id, u.nombre, u.email,u.foto_perfil,
+                     v.negocio, v.descripcion, v.ciudad, v.estado_activo
+              FROM usuarios u
+              JOIN vendedores v ON u.user_id = v.user_id
+              WHERE u.tipo_usuario = 'vendedor'
+              AND v.estado_activo = 1
+              ORDER BY u.nombre";
+    
+    $result = $this->con->query($query);
+    $emprendedores = array();
+    while ($row = $result->fetch_assoc()) {
+        $emprendedores[] = $row;
+    }
+    return $emprendedores;
+}
+
+public function getVendedorById($id) {
+    $query = "SELECT u.user_id, u.nombre, u.email, u.foto_perfil,
+                     v.negocio, v.descripcion, v.ciudad, v.estado_activo
+              FROM usuarios u
+              JOIN vendedores v ON u.user_id = v.user_id
+              WHERE u.user_id = ?";
+    
+    $stmt = $this->con->prepare($query);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    return $result->fetch_assoc();
+}
+
+public function getProductosByVendedor($vendedor_id) {
+    $query = "SELECT p.*, c.name_categoria as categoria_nombre
+              FROM productos p
+              JOIN categoria c ON p.categoria = c.categoria_id
+              WHERE p.vendedor_id = ?
+              AND p.stock > 0
+              ORDER BY p.fecha_creado DESC";
+    
+    $stmt = $this->con->prepare($query);
+    $stmt->bind_param('i', $vendedor_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    $productos = array();
+    while ($row = $result->fetch_assoc()) {
+        $productos[] = $row;
+    }
+    return $productos;
+}
 
 }
 ?>

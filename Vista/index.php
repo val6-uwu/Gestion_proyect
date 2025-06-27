@@ -21,6 +21,8 @@ $productosSlider = array_slice($productos, 0, 6);
     <?php include('../Vista/navbar.php'); ?>
     <?php include('../Vista/anuncios.php'); ?>
     <?php include('../Vista/sliderprod.php'); ?>
+    <?php include('../Vista/footer.php'); ?>
+
 
 
    

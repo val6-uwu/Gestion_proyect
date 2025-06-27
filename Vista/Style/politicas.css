@@ -1,0 +1,237 @@
+/* Estilos generales */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+
+/* Hero Banner */
+
+.hero-banner {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+
+/* Contenedor principal */
+
+.politicas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+
+/* Grid de políticas */
+
+.politicas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.politica-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.politica-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.politica-icon {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.politica-card h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.politica-card p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.politica-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.politica-highlights li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+}
+
+.politica-highlights i {
+    color: #2ecc71;
+}
+
+.politica-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.politica-btn:hover {
+    background: #2980b9;
+    transform: translateX(5px);
+}
+
+
+/* Sección de preguntas frecuentes */
+
+.faq-section {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.faq-section h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+}
+
+.faq-section h2 i {
+    color: #3498db;
+}
+
+.faq-container {
+    border-top: 1px solid #eee;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #3498db;
+}
+
+.faq-question i {
+    color: #7f8c8d;
+    transition: all 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 20px 0 0;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.faq-answer.active {
+    max-height: 500px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .hero-banner {
+        height: 250px;
+    }
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .politicas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .hero-banner {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .politicas-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-banner {
+        height: 180px;
+    }
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+    .banner-content p {
+        font-size: 1rem;
+    }
+    .faq-section h2 {
+        font-size: 1.5rem;
+    }
+}

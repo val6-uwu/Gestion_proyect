@@ -1,0 +1,320 @@
+/* Estilos generales */
+
+.atencion-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Banner superior */
+
+.atencion-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../Vista/Complementos/imgs/banner-atencion.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+
+/* Grid de servicios */
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.servicio-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-10px);
+}
+
+.servicio-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.servicio-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.servicio-card:hover .servicio-img img {
+    transform: scale(1.05);
+}
+
+.servicio-content {
+    padding: 20px;
+}
+
+.servicio-content h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.servicio-content h2 i {
+    color: #3498db;
+}
+
+.servicio-content p {
+    color: #7f8c8d;
+    margin: 15px 0;
+}
+
+.contacto-info li,
+.devoluciones-info li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contacto-info i,
+.devoluciones-info i {
+    color: #3498db;
+    width: 20px;
+    text-align: center;
+}
+
+.faq-preview {
+    margin: 20px 0;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.faq-item h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.faq-item p {
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+.garantias-info {
+    margin: 20px 0;
+}
+
+.garantia-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.garantia-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+.garantia-item h3 {
+    margin: 0 0 5px 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.garantia-item p {
+    margin: 0;
+    color: #666;
+}
+
+.servicio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.servicio-btn:hover {
+    background: #2980b9;
+    transform: translateX(5px);
+}
+
+
+/* Sección de contacto adicional */
+
+.contacto-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 60px 0;
+}
+
+.contacto-form h2,
+.contacto-info h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contacto-form h2 i,
+.contacto-info h2 i {
+    color: #3498db;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-btn:hover {
+    background: #2980b9;
+}
+
+.mapa {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.mapa img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.horario {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.horario h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.horario p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.horario i {
+    color: #3498db;
+    width: 20px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .servicios-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .contacto-extra {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .atencion-banner {
+        height: 200px;
+    }
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+    .servicio-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .atencion-banner {
+        height: 150px;
+    }
+    .banner-content h1 {
+        font-size: 1.5rem;
+    }
+    .banner-content p {
+        font-size: 1rem;
+    }
+}
