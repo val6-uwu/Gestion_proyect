@@ -78,7 +78,7 @@
         </div>
         <button class="cart-btn" aria-label="Carrito">
             <img src="../Vista/Complementos/icons/carrito.png" alt="Carrito">
-            <a href="../Vista/vendedor/index.php">Vista Admin</a>
+            <a href="../Vista/vendedor/mi-perfil.php">Vista Admin</a>
         </button>
         <button class="cart-btn" aria-label="Carrito">
             <img src="../Vista/Complementos/icons/carrito.png" alt="Carrito">
