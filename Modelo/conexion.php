@@ -8,8 +8,6 @@ class Conexion {
         // Verifica si hay error en la conexión
         if ($this->con->connect_error) {
             die("Error de conexión: " . $this->con->connect_error);
-        } else {
-            echo "Conexión exitosa a la base de datos.";
         }
     }
 
@@ -51,6 +49,72 @@ class Conexion {
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
         return $row ? $row['tipo_usuario'] : null;
+    }
+
+    public function getProductos() {
+    $query = "SELECT p.*, c.name_categoria as categoria_nombre, 
+                     sc.nombre_subcategoria as subcategoria_nombre
+              FROM productos p
+              JOIN categoria c ON p.categoria = c.categoria_id
+              JOIN subcategories sc ON p.subcategoria = sc.subcategoria_id
+              ORDER BY p.fecha_creado DESC";
+    
+    $result = $this->con->query($query);
+    $productos = array();
+    while ($row = $result->fetch_assoc()) {
+        $productos[] = $row;
+    }
+    return $productos;
+    }
+    /**
+     * Obtiene un producto por su ID
+     * @param int $id ID del producto
+     * @return array|null Datos del producto o null si no existe
+     */
+    public function getProductoById($id) {
+        $query = "SELECT p.*, c.name_categoria as categoria_nombre, 
+                         sc.nombre_subcategoria as subcategoria_nombre
+                  FROM productos p
+                  JOIN categoria c ON p.categoria = c.categoria_id
+                  JOIN subcategories sc ON p.subcategoria = sc.subcategoria_id
+                  WHERE p.id = ?";
+        
+        $stmt = $this->con->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        return $result->fetch_assoc();
+    }
+
+    /**
+     * Obtiene productos relacionados (misma categoría)
+     * @param int $categoriaId ID de la categoría
+     * @param int $excludeId ID del producto a excluir
+     * @param int $limit Límite de productos a devolver
+     * @return array Lista de productos relacionados
+     */
+    public function getProductosRelacionados($categoriaId, $excludeId, $limit = 4) {
+        $query = "SELECT p.id, p.nombre, p.precio, p.imagen_url, 
+                         c.name_categoria as categoria_nombre
+                  FROM productos p
+                  JOIN categoria c ON p.categoria = c.categoria_id
+                  WHERE p.categoria = ? 
+                  AND p.id != ?
+                  AND p.stock > 0
+                  ORDER BY RAND()
+                  LIMIT ?";
+        
+        $stmt = $this->con->prepare($query);
+        $stmt->bind_param('iii', $categoriaId, $excludeId, $limit);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        $productos = [];
+        while ($row = $result->fetch_assoc()) {
+            $productos[] = $row;
+        }
+        return $productos;
     }
 
 }

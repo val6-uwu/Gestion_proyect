@@ -1,12 +1,9 @@
 <?php
-
 session_start();
-
 require_once '../Modelo/conexion.php';
 
 $con = new Conexion();
 $action = isset($_GET['accion']) ? $_GET['accion'] : '';
-
 if ($action == 'login') {
     $email = $_POST['email'];
     $contrasena = $_POST['constrasena'];
@@ -34,10 +31,9 @@ if ($action == 'login') {
         } else {
             header("Location: ../Vista/admin/admin-view.php");
         }
-
     }
-
-
+    //Mostrar productos
+    
 }
 
 ?>
