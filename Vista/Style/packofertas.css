@@ -1,0 +1,369 @@
+
+.filters-btn{
+    width: 30px;
+    height: 30px;
+    padding: 0.8rem;
+    background-color: rgb(61, 20, 184);
+    color: rgb(255, 255, 255);
+    border: 3px double white;
+    border-radius: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filters-btn:hover {
+    background-color: rgb(255, 255, 255);
+    width: 35px;
+    height: 35px;
+    color: rgb(61, 20, 184);
+    border: 3px double rgb(61, 20, 184);
+}
+/* --- SECCIÓN DE PRODUCTOS (DERECHA) --- */
+.products {
+    flex: 1; 
+    min-width: 0; 
+}
+
+/* Breadcrumbs (Migas de pan) */
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #6c757d;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.header h1 span {
+    font-weight: 700;
+    color: #343a40;
+}
+
+/* Contenedor de la cuadrícula de productos */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Tarjeta de Producto Individual */
+/* AÑADÍ .pack-card AQUÍ PARA QUE HEREDE TODOS TUS ESTILOS BASE */
+.product-card, .pack-card {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden; 
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+}
+
+.product-card:hover, .pack-card:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.product-info p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #28a745; 
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Estilos para productos en oferta */
+/* AÑADÍ .pack-card AQUÍ TAMBIÉN */
+.product-card.on-sale .sale-tag,
+.pack-card.on-sale .sale-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #E91E63; 
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.product-card.on-sale .original-price,
+.pack-card.on-sale .original-price {
+    text-decoration: line-through;
+    color: #adb5bd;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.product-card.on-sale .sale-price,
+.pack-card.on-sale .sale-price {
+    color: #dc3545; 
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER Y PAGINACIÓN --- */
+.products-footer {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: #e9ecef;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+.pagination span {
+    border: none;
+    color: #6c757d;
+}
+
+/* ======================================================= */
+/* --- ESTILOS NUEVOS AÑADIDOS PARA LOS PACKS DE OFERTA --- */
+/* ======================================================= */
+
+.pack-card .pack-images {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantiene el espacio cuadrado como las otras imágenes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Un poco de espacio interior */
+    box-sizing: border-box;
+}
+
+.pack-card .pack-images img {
+    position: absolute;
+    width: 65%; /* Hacemos las imágenes un poco más pequeñas para que quepan dos */
+    height: 65%;
+    object-fit: cover;
+    border-radius: 8px; /* Bordes redondeados para las imágenes del pack */
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Posicionamos una imagen arriba a la izquierda y la otra abajo a la derecha */
+.pack-card .pack-images img:first-of-type {
+    top: 10%;
+    left: 10%;
+    z-index: 1;
+}
+
+.pack-card .pack-images img:last-of-type {
+    bottom: 10%;
+    right: 10%;
+}
+
+.pack-card:hover .pack-images img:first-of-type {
+    transform: rotate(-5deg) scale(1.05);
+}
+.pack-card:hover .pack-images img:last-of-type {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.pack-card .plus-icon {
+    position: relative;
+    z-index: 2; /* Para que esté por encima de las imágenes */
+    width: 35px;
+    height: 35px;
+    background-color: #E91E63; /* Mismo color que el tag de oferta */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.filters-btn {
+    width: 45px; /* Ajustado para el ícono */
+    height: 45px;
+    padding: 0.5rem;
+    background-color: rgb(61, 20, 184);
+    color: rgb(255, 255, 255);
+    border: 3px double white;
+    border-radius: 100%;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: none; /* Oculto por defecto en pantallas grandes */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.filters-btn:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.1);
+    color: rgb(61, 20, 184);
+    border: 3px double rgb(61, 20, 184);
+}
+
+/* Estilo para el botón de cerrar (X) dentro del panel */
+.close-btn {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    line-height: 1;
+}
+.close-btn:hover {
+    color: #343a40;
+}
+
+/* Estilo para el fondo oscuro */
+#filters-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998; /* Justo debajo del panel de filtros */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#filters-overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+#show-filters-btn,.header-button{
+    display: none;
+}
+
+/* --- Media Query para pantallas pequeñas (móviles) --- */
+
+@media (max-width: 768px) {
+    #show-filters-btn,.header-button{
+    display: block;
+    }
+    .header-button{
+        display: flex;
+        justify-content: right;
+        border-bottom: 2px solid #e9ecef;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+    #show-filters-btn {
+        background-color: transparent;
+        border: none;
+        
+    }
+    #show-filters-btn img{
+        width: 25px;
+        height: 25px;
+    }
+    .header-button{
+
+    }
+    .father-container {
+        flex-direction: column; 
+    }
+    
+    /* MODIFICADO: Comportamiento del panel de filtros en móvil */
+    .filter {
+        flex: 1; 
+        margin-bottom: 2rem;
+        position: fixed; /* Lo sacamos del flujo normal */
+        top: 0;
+        left: 0;
+        width: 85%; /* Ocupa el 85% del ancho */
+        max-width: 320px; /* Pero no más de 320px */
+        height: 100vh; /* Altura completa */
+        background-color: #fff;
+        z-index: 999; /* Por encima de todo */
+        transform: translateX(-100%); /* Lo movemos fuera de la pantalla */
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto; /* Permite scroll si el contenido es largo */
+        padding-top: 2rem;
+        padding-left: 0.8rem;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    /* AÑADIDO: Clase para mostrar el panel */
+    .filter.is-visible {
+        transform: translateX(0); /* Lo trae de vuelta a la pantalla */
+    }
+
+    /* AÑADIDO: Hacemos visibles los botones en móvil */
+    .filters-btn {
+        display: flex; /* Mostramos el botón de abrir */
+        margin-right: 1rem; /* Le damos espacio */
+    }
+    .close-btn {
+        display: block; /* Mostramos el botón de cerrar */
+    }
+
+    /* AÑADIDO: Hacemos que el H1 y el botón de filtros estén en la misma línea */
+    .products .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
