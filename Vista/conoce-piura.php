@@ -109,5 +109,6 @@
 
     <!-- SCRIPT PARA EL carousel AUTOMÁTICO -->
     <script src="Scripts/sobre-piura.js"></script>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

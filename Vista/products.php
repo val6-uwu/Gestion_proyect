@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="../Vista/Style/filtro.css" />
     <link rel="stylesheet" href="../Vista/Style/products.css" />
 </head>
 
@@ -184,6 +185,7 @@
         </footer>
     </article>
 </section>
+<?php include 'footer.php'; ?>
 <script src="../Vista/Scripts/Filtro-categorias.js"></script>
 </body>
 </html>

@@ -1,4 +1,7 @@
-let BotonDesplazar = document.querySelectorAll('.toggle-subcategory');
+const BotonDesplazar = document.querySelectorAll('.toggle-subcategory');
+const showFiltersBtn = document.getElementById('show-filters-btn');
+const filtersColumn = document.querySelector('.filter');
+const overlay = document.getElementById('filters-overlay');
 
 function RemoverLista() {
     BotonDesplazar.forEach(boton => {
@@ -48,3 +51,19 @@ for(let i = 0; i < BotonDesplazar.length; i++) {
     })         
 });
 }
+// Función para mostrar los filtros
+function openFilters() {
+    filtersColumn.classList.add('is-visible');
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
+}
+
+        // Función para ocultar los filtros
+function closeFilters() {
+    filtersColumn.classList.remove('is-visible');
+    overlay.classList.remove('is-visible');
+    document.body.style.overflow = ''; // Restaura el scroll
+}
+        // Asignar los eventos a los botones
+showFiltersBtn.addEventListener('click', openFilters);
+overlay.addEventListener('click', closeFilters); // También cierra al hacer clic en el fondo oscuro
