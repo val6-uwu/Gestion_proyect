@@ -2,13 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    
 }
 
 
 /* ESTILOS PARA LA NAVBAR */
 
 .navbar {
+    font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(90deg, #FFEA00, #FFF700, #FFE600);
     display: flex;
     justify-content: space-between;
