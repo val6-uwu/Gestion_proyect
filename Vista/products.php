@@ -185,6 +185,7 @@
         </footer>
     </article>
 </section>
+<?php include 'footer.php'; ?>
 <script src="../Vista/Scripts/Filtro-categorias.js"></script>
 </body>
 </html>

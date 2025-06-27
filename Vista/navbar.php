@@ -72,7 +72,7 @@
                 <li><a href="conoce-piura.php">Conoce más de Piura</a></li>
                 <li><a href="packofertas.php">Packs de ofertas</a></li>
                 <li><a href="products.php">Productos</a></li>
-                <li><a href="">Negocios</a></li>
+                <li><a href="negocios.php">Negocios</a></li>
                 <li><a href="emprendedores.php">Emprendedores</a></li>
             </ul>
         </div>
