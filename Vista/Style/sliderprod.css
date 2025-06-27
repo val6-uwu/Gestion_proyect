@@ -1,4 +1,6 @@
-/* sliderprod.css */
+* {
+    font-family: 'Segoe UI', sans-serif;
+}
 
 .slider-container {
     max-width: 1200px;

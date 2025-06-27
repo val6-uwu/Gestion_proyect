@@ -6,14 +6,16 @@
             <a href="index.php"><img src="../Vista/Complementos/imgs/logo.png" alt="logo" class="logo"></a>
         </div>
         <!-- Formulario de búsqueda -->
-         <div>
-            <form class="search-form" method="GET" action="">
-                <input type="text" name="q" placeholder="Buscar..." />
-                <button type="submit" aria-label="Buscar">
-                    <img src="../Vista/Complementos/icons/lupa.png" alt="Buscar" class="search-icon" />
-                </button>
-            </form>
-         </div>
+         <!-- Formulario de búsqueda -->
+<div class="search-container">
+    <form class="search-form" method="GET" action="busqueda.php">
+        <input type="text" name="q" placeholder="Buscar productos, categorías..." class="search-input" autocomplete="off">
+        <button type="submit" class="search-button" aria-label="Buscar">
+            <img src="../Vista/Complementos/icons/lupa.png" alt="Buscar" class="search-icon">
+        </button>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+    </form>
+</div>
         
         <!-- Botones -->
         <div class="nav-buttons">

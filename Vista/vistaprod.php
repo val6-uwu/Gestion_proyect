@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../Modelo/conexion.php';
-
 // Validar ID del producto
 $productoId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -9,17 +8,13 @@ if(!$productoId || $productoId <= 0) {
     header("Location: index.php");
     exit();
 }
-
 $conexion = new Conexion();
 $producto = $conexion->getProductoById($productoId);
 
-// Si el producto no existe, redirigir
 if(!$producto) {
     header("Location: index.php");
     exit();
 }
-
-// Obtener productos relacionados
 $productosRelacionados = $conexion->getProductosRelacionados(
     $producto['categoria'], 
     $producto['id'],
@@ -39,47 +34,26 @@ $productosRelacionados = $conexion->getProductosRelacionados(
 <body>
     <?php include('../Vista/navbar.php'); ?>
 
-    <main class="vistaprod-container">
-        <div class="vistaprod-main">
-            <div class="vistaprod-gallery">
-                <div class="vistaprod-main-img">
-                    <img src="<?= htmlspecialchars($producto['imagen_url']) ?>" 
-                         alt="<?= htmlspecialchars($producto['nombre']) ?>">
-                </div>
-                <!-- Puedes agregar miniaturas aquí si tienes más imágenes -->
+    <main class="producto-container">
+        <div class="producto-grid">
+            <!-- Columna izquierda - Imagen del producto -->
+            <div class="producto-imagen-container">
+                <img src="<?= htmlspecialchars($producto['imagen_url']) ?>" 
+                     alt="<?= htmlspecialchars($producto['nombre']) ?>"
+                     class="producto-imagen">
             </div>
             
-            <div class="vistaprod-details">
-                <h1><?= htmlspecialchars($producto['nombre']) ?></h1>
+            <!-- Columna derecha - Información del producto -->
+            <div class="producto-info-container">
+                <h1 class="producto-nombre"><?= htmlspecialchars($producto['nombre']) ?></h1>
+                <p class="producto-precio">S/ <?= number_format($producto['precio'], 2) ?></p>
                 
-                <div class="vistaprod-meta">
-                    <span class="vistaprod-category">
-                        <?= htmlspecialchars($producto['categoria_nombre']) ?>
-                        <?php if(isset($producto['subcategoria_nombre'])): ?>
-                        / <?= htmlspecialchars($producto['subcategoria_nombre']) ?>
-                        <?php endif; ?>
-                    </span>
-                    
-                    <div class="vistaprod-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(0 reseñas)</span>
-                    </div>
+                <div class="producto-meta">
+                    <p><i class="fas fa-check-circle"></i> <strong>Saldo:</strong> <?= htmlspecialchars($producto['variante'] ?? 'Natural') ?></p>
+                    <p><i class="fas fa-box"></i> <strong>Presentación:</strong> <?= htmlspecialchars($producto['presentacion'] ?? '12 unidades') ?></p>
                 </div>
                 
-                <p class="vistaprod-price">S/ <?= number_format($producto['precio'], 2) ?></p>
-                
-                <?php if(isset($producto['stock']) && $producto['stock'] > 0): ?>
-                <p class="vistaprod-stock in-stock">Disponible (<?= $producto['stock'] ?> unidades)</p>
-                <?php else: ?>
-                <p class="vistaprod-stock out-stock">Agotado</p>
-                <?php endif; ?>
-                
-                <div class="vistaprod-description">
-                    <h3>Descripción</h3>
-                    <p><?= nl2br(htmlspecialchars($producto['descripcion'] ?? 'Sin descripción disponible')) ?></p>
-                </div>
-                
-                <div class="vistaprod-actions">
+                <div class="producto-acciones">
                     <div class="quantity-selector">
                         <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
                         <input type="number" value="1" min="1" max="<?= $producto['stock'] ?? 1 ?>" class="quantity-input">
@@ -91,29 +65,71 @@ $productosRelacionados = $conexion->getProductosRelacionados(
                     </button>
                 </div>
                 
-                <div class="vistaprod-additional-info">
-                    <!-- Puedes agregar más información del producto aquí -->
+                <div class="envio-info">
+                    <p><i class="fas fa-truck"></i> Envío gratis por compras mayores a S/ 1000</p>
+                    <a href="#" class="envio-link">Conoce los tiempos y formas de envío <i class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
         </div>
         
+        <!-- Sección de características (debajo de las dos columnas) -->
+        <div class="producto-caracteristicas">
+            <h2>Características del producto</h2>
+            <div class="caracteristicas-grid">
+                <div class="caracteristica-item">
+                    <h3><i class="fas fa-tag"></i> Marca</h3>
+                    <p><?= htmlspecialchars($producto['marca'] ?? 'El churre') ?></p>
+                </div>
+                <div class="caracteristica-item">
+                    <h3><i class="fas fa-align-left"></i> Descripción</h3>
+                    <p><?= nl2br(htmlspecialchars($producto['descripcion'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua')) ?></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Resto de las secciones -->
+        <div class="producto-opiniones">
+            <h2>Opiniones del producto</h2>
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-value">5.0</span>
+                <span class="rating-count">(0 calificaciones)</span>
+            </div>
+        </div>
+
+        <div class="medios-pago">
+            <h2>Medios de pago</h2>
+            <div class="pago-info">
+                <p><i class="fas fa-credit-card"></i> Tarjetas de crédito y débito</p>
+                <p><i class="fas fa-percentage"></i> Cuotas sin interés con bancos seleccionados</p>
+            </div>
+            <div class="tarjetas">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+
         <?php if(!empty($productosRelacionados)): ?>
-        <section class="related-products">
-            <h2>Productos Relacionados</h2>
-            <div class="related-products-grid">
+        <div class="productos-recomendados">
+            <h2>Productos recomendados</h2>
+            <div class="recomendados-grid">
                 <?php foreach($productosRelacionados as $relacionado): ?>
-                <a href="vistaprod.php?id=<?= $relacionado['id'] ?>" class="related-product-card">
-                    <div class="related-product-img">
-                        <img src="<?= htmlspecialchars($relacionado['imagen_url']) ?>" 
-                             alt="<?= htmlspecialchars($relacionado['nombre']) ?>">
+                <a href="vistaprod.php?id=<?= $relacionado['id'] ?>" class="producto-card">
+                    <div class="producto-imagen-sugerencia">
+                        <img src="<?= htmlspecialchars($producto['imagen_url']) ?>" 
+                        alt="<?= htmlspecialchars($producto['nombre']) ?>"
+                        class="sugerencia-imagen">
                     </div>
                     <h3><?= htmlspecialchars($relacionado['nombre']) ?></h3>
-                    <p class="related-product-price">S/ <?= number_format($relacionado['precio'], 2) ?></p>
+                    <p class="precio">S/ <?= number_format($relacionado['precio'], 2) ?></p>
                 </a>
                 <?php endforeach; ?>
             </div>
-        </section>
+        </div>
         <?php endif; ?>
+
     </main>
 
     <?php include('../Vista/footer.php'); ?>
